@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 52" fill="none">
+  <!--
+    YardLink Pulse waveform mark.
+
+    Traced from the supplied logo. A single polyline, round caps and joins.
+    Note the asymmetry, which is deliberate and easy to lose: the right-hand
+    baseline sits lower than the left-hand one.
+
+    `currentColor` so the mark inherits its colour from context, green in the
+    sidebar and on the sign-in screen, border-grey in empty states.
+  -->
+  <path
+    d="M3 35 L37 35 L49 21 L60 47 L78 4 L96 47 L108 21 L119 45 L153 45"
+    stroke="currentColor"
+    stroke-width="5.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

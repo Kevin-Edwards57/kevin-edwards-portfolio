@@ -1,0 +1,966 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kevin Edwards | AI Product Engineer</title>
+<meta name="description" content="AI Product Engineer and Founder of YardLink Studio LLC. Building useful software, AI products, mobile apps, web applications, and developer tools.">
+<meta name="author" content="Kevin Edwards">
+<link rel="canonical" href="https://kevinedwards.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kevin Edwards">
+<meta property="og:title" content="Kevin Edwards | AI Product Engineer">
+<meta property="og:description" content="AI Product Engineer and Founder of YardLink Studio LLC. Building useful software, AI products, mobile apps, web applications, and developer tools.">
+<meta property="og:url" content="https://kevinedwards.dev/">
+<meta property="og:image" content="https://kevinedwards.dev/assets/shots/winston-review.jpg">
+<meta property="og:image:alt" content="Winston, an AI sales intelligence system, showing its review queue and validation results">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kevin Edwards | AI Product Engineer">
+<meta name="twitter:description" content="AI Product Engineer and Founder of YardLink Studio LLC.">
+<meta name="twitter:image" content="https://kevinedwards.dev/assets/shots/winston-review.jpg">
+<link rel="icon" href="assets/icons/yardlink.png" type="image/png">
+<style>
+:root{
+  --navy-950:#071A33; --navy-900:#0B2545; --navy-800:#102F55; --navy-700:#16406f;
+  --blue:#2563EB; --blue-light:#60A5FA; --off:#F5F7FA; --slate:#64748B;
+  --ink:#0B1220; --line:rgba(96,165,250,.16); --card:rgba(255,255,255,.035);
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--off);font-family:var(--sans);
+  line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--blue-light);text-decoration:none}
+.wrap{width:min(1180px,92vw);margin-inline:auto}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:60;backdrop-filter:blur(14px);
+  background:rgba(7,26,51,.82);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.on{border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;color:#fff}
+.brand img{width:26px;height:26px;border-radius:6px}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:#c9d6e8;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;padding:4px 8px}
+
+/* hero */
+header.hero{position:relative;padding:170px 0 110px;overflow:hidden;
+  background:radial-gradient(1100px 620px at 78% 6%,rgba(37,99,235,.24),transparent 60%),
+             radial-gradient(800px 500px at 8% 92%,rgba(96,165,250,.12),transparent 62%),
+             linear-gradient(175deg,var(--navy-950),var(--ink) 78%)}
+.grid-bg{position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(circle at 60% 30%,#000,transparent 72%)}
+.hero-in{position:relative;z-index:2;max-width:940px}
+.idrow{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.idrow img{width:92px;height:92px;border-radius:20px;object-fit:cover;flex:none;
+  border:1px solid rgba(148,180,225,.35);box-shadow:0 14px 34px -12px rgba(0,0,0,.9)}
+.idrow .idtext{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--blue-light);line-height:1.9}
+.idrow .idtext b{display:block;color:var(--blue-light);font-weight:600;letter-spacing:.2em}
+.idrow .idtext{color:#8fa4bd}
+@media(max-width:560px){.idrow img{width:74px;height:74px;border-radius:16px}
+  .idrow .idtext{font-size:.66rem;letter-spacing:.14em}}
+.pcard-img.hasbadge::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+  background:linear-gradient(to top,rgba(4,10,20,.88),transparent);pointer-events:none;z-index:1}
+.pcard-img img.applogo{position:absolute;right:16px;bottom:16px;width:64px;height:64px;
+  border-radius:15px;object-fit:cover;object-position:center;z-index:2;background:var(--navy-950);
+  border:1px solid rgba(255,255,255,.2);box-shadow:0 12px 28px -8px rgba(0,0,0,.95);transform:none}
+@media(max-width:560px){.pcard-img img.applogo{width:54px;height:54px;right:12px;bottom:12px}}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--blue-light);display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow::before{content:"";width:34px;height:1px;background:var(--blue-light)}
+h1{font-size:clamp(2.9rem,8vw,5.6rem);line-height:.98;letter-spacing:-.035em;margin:0 0 18px;
+  font-weight:800;color:#fff}
+.roles{font-size:clamp(1rem,2.2vw,1.22rem);color:#dbe6f5;font-weight:600;margin-bottom:26px}
+.roles span{color:var(--blue-light)}
+.tagline{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:300;font-style:italic;
+  color:#fff;letter-spacing:-.02em;margin:0 0 26px;padding-left:20px;border-left:3px solid var(--blue)}
+.lede{font-size:clamp(1rem,1.5vw,1.12rem);color:#a9bcd4;max-width:660px;margin:0 0 38px}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:9px;
+  font-weight:600;font-size:.95rem;transition:transform .2s,box-shadow .2s,background .2s;border:1px solid transparent}
+.btn-p{background:var(--blue);color:#fff;box-shadow:0 10px 30px -10px rgba(37,99,235,.85)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(37,99,235,1)}
+.btn-s{border-color:rgba(148,180,225,.32);color:#dbe6f5}
+.btn-s:hover{background:rgba(96,165,250,.1);border-color:var(--blue-light);transform:translateY(-2px)}
+.stats{display:flex;gap:44px;flex-wrap:wrap;margin-top:60px;padding-top:32px;border-top:1px solid var(--line)}
+.stat b{display:block;font-size:clamp(1.7rem,3.4vw,2.3rem);color:#fff;font-weight:700;letter-spacing:-.02em}
+.stat span{font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)}
+
+/* sections */
+section{padding:104px 0;position:relative}
+.sec-head{margin-bottom:52px;max-width:780px}
+.sec-head .eyebrow{margin-bottom:14px}
+h2{font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:-.03em;line-height:1.1;margin:0 0 16px;color:#fff;font-weight:700}
+.sec-head p{color:#9fb3cd;font-size:1.05rem;margin:0}
+.alt{background:linear-gradient(180deg,transparent,var(--navy-950) 14%,var(--navy-950) 86%,transparent)}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.25fr .85fr;gap:56px;align-items:start}
+.about-grid p{color:#b3c5da;margin:0 0 18px;font-size:1.04rem}
+.about-grid strong{color:#fff;font-weight:600}
+.philo{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:30px}
+.philo h3{margin:0 0 20px;font-size:.78rem;font-family:var(--mono);letter-spacing:.15em;
+  text-transform:uppercase;color:var(--blue-light)}
+.philo li{list-style:none;padding:11px 0 11px 26px;position:relative;color:#c3d3e6;
+  border-bottom:1px solid rgba(96,165,250,.09);font-size:.95rem}
+.philo li:last-child{border:0}
+.philo li::before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;
+  border-radius:2px;background:var(--blue);transform:rotate(45deg)}
+.philo ul{margin:0;padding:0}
+
+/* featured */
+.case{border:1px solid var(--line);border-radius:19px;overflow:hidden;margin-bottom:52px;
+  background:linear-gradient(165deg,rgba(11,37,69,.62),rgba(11,18,32,.5))}
+.case-head{padding:38px 38px 26px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;
+  justify-content:space-between;border-bottom:1px solid var(--line)}
+.case-title h3{margin:0 0 8px;font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;letter-spacing:-.025em;font-weight:700}
+.case-title p{margin:0;color:#9fb3cd;font-size:1.02rem;max-width:640px}
+.pill{font-family:var(--mono);font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;
+  padding:6px 13px;border-radius:100px;white-space:nowrap;border:1px solid}
+.pill.live{color:#4ade80;border-color:rgba(74,222,128,.36);background:rgba(74,222,128,.09)}
+.pill.dev{color:var(--blue-light);border-color:rgba(96,165,250,.36);background:rgba(96,165,250,.09)}
+.pill.int{color:#c4b5fd;border-color:rgba(196,181,253,.36);background:rgba(196,181,253,.09)}
+.pill.pro{color:#fbbf24;border-color:rgba(251,191,36,.36);background:rgba(251,191,36,.09)}
+.case-body{padding:34px 38px 38px}
+.flow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.flow span{font-family:var(--mono);font-size:.73rem;padding:7px 13px;border-radius:7px;
+  background:rgba(37,99,235,.13);border:1px solid rgba(37,99,235,.26);color:#cfe0f7}
+.flow i{color:var(--slate);align-self:center;font-style:normal;font-size:.8rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.cat{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--slate);display:block;margin:0 0 6px}
+.pcard-t .cat{margin:0}
+.lead{font-size:1.12rem;color:#dbe6f5;line-height:1.6;margin:0 0 22px;font-weight:400}
+.lead strong{color:#fff;font-weight:600}
+.who{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue-light);background:rgba(37,99,235,.12);
+  border:1px solid rgba(37,99,235,.28);padding:5px 12px;border-radius:100px;margin-bottom:18px}
+.built{border-left:2px solid var(--blue);padding:2px 0 2px 18px;margin:0 0 26px}
+.built h4{margin-top:0!important}
+.pcard-b .lead{font-size:.98rem;margin-bottom:14px}
+.pcard-b .who{font-size:.66rem;padding:4px 10px;margin-bottom:12px}
+.pcard-b .built{font-size:.9rem;margin-bottom:14px;padding-left:14px}
+.pcard-b .built b{color:#cfe0f7;font-weight:600;display:block;font-size:.72rem;
+  font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.case-body h4{font-family:var(--mono);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--blue-light);margin:0 0 13px}
+.case-body p{color:#b3c5da;margin:0 0 15px;font-size:.98rem}
+.notes li{list-style:none;padding:8px 0 8px 20px;position:relative;color:#b3c5da;font-size:.95rem}
+.notes li::before{content:"›";position:absolute;left:0;color:var(--blue);font-weight:700}
+.notes{margin:0;padding:0}
+.shots{display:grid;gap:14px;margin-top:30px}
+.shots.g3{grid-template-columns:repeat(3,1fr)}
+.shots.g4{grid-template-columns:repeat(4,1fr)}
+.shot{border-radius:11px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;
+  background:var(--navy-950);transition:transform .3s,border-color .3s}
+.shot:hover{transform:translateY(-4px);border-color:var(--blue-light)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.tag{font-family:var(--mono);font-size:.71rem;padding:5px 11px;border-radius:6px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:#a9bcd4;transition:.2s}
+.tag:hover{color:#fff;border-color:var(--blue-light);background:rgba(37,99,235,.16)}
+
+/* project grid */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(400px,100%),1fr));gap:22px}
+.pcard{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--card);
+  display:flex;flex-direction:column;transition:transform .3s,border-color .3s,box-shadow .3s}
+.pcard:hover{transform:translateY(-5px);border-color:rgba(96,165,250,.45);box-shadow:0 22px 50px -22px rgba(0,0,0,.85)}
+.pcard-img{aspect-ratio:16/10;overflow:hidden;background:var(--navy-900);cursor:zoom-in;position:relative}
+.pcard-img img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
+.pcard:hover .pcard-img img:not(.applogo){transform:scale(1.04)}
+.pcard-icon{aspect-ratio:16/10;display:grid;place-items:center;
+  background:radial-gradient(circle at 50% 40%,rgba(37,99,235,.2),transparent 68%),var(--navy-900)}
+.pcard-icon img{width:74px;height:74px;border-radius:17px}
+.pcard-b{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
+.pcard-t{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:9px}
+.pcard-t h3{margin:0;font-size:1.16rem;color:#fff;letter-spacing:-.02em;font-weight:700}
+.pcard-b p{color:#a3b6cd;font-size:.93rem;margin:0 0 16px;flex:1}
+.mini{display:flex;gap:6px;flex-wrap:wrap}
+.mini span{font-family:var(--mono);font-size:.68rem;padding:4px 9px;border-radius:5px;
+  background:rgba(255,255,255,.05);color:#93a8c2}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(258px,100%),1fr));gap:18px}
+.sgroup{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--card)}
+.sgroup h3{font-family:var(--mono);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--blue-light);margin:0 0 16px}
+.sgroup div{display:flex;flex-wrap:wrap;gap:7px}
+
+/* footer */
+footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--navy-950)}
+.f-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-end}
+.f-in h3{font-size:clamp(1.5rem,3vw,2rem);margin:0 0 10px;color:#fff;letter-spacing:-.025em}
+.f-in p{color:#8fa4bd;margin:0;max-width:440px}
+.f-links{display:flex;gap:22px;flex-wrap:wrap}
+.copy{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);
+  color:var(--slate);font-size:.85rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(4,10,20,.96);display:none;
+  place-items:center;padding:34px;backdrop-filter:blur(6px)}
+.lb.on{display:grid}
+.lb img{max-width:100%;max-height:88vh;border-radius:11px;border:1px solid var(--line)}
+.lb-x{position:absolute;top:22px;right:28px;background:none;border:0;color:#fff;font-size:2.2rem;cursor:pointer;line-height:1}
+.lb-cap{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#9fb3cd;font-size:.88rem;padding:0 20px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .about-grid,.two{grid-template-columns:1fr;gap:30px}
+  .shots.g3,.shots.g4{grid-template-columns:1fr 1fr}
+  .nav-links{position:fixed;inset:56px 0 auto 0;flex-direction:column;background:rgba(7,26,51,.99);
+    padding:22px 0 26px;gap:14px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+  header.hero{padding:130px 0 78px}
+  .case-head,.case-body{padding-left:22px;padding-right:22px}
+  section{padding:74px 0}
+  .stats{gap:28px}
+}
+@media(max-width:560px){ .shots.g3,.shots.g4,.shots.g2{grid-template-columns:1fr} }
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important} html{scroll-behavior:auto} .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="assets/icons/yardlink.png" alt="YardLink Studio mark">Kevin Edwards</a>
+    <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">≡</button>
+    <div class="nav-links" id="links">
+      <a href="#about">About</a>
+      <a href="#work">Featured</a>
+      <a href="#more">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="grid-bg"></div>
+  <div class="wrap hero-in">
+    <div class="idrow">
+      <img src="assets/kevin.jpg" alt="Portrait of Kevin Edwards" width="92" height="92">
+      <div class="idtext"><b>YardLink Studio LLC</b></div>
+    </div>
+    <h1>Kevin Edwards</h1>
+    <div class="roles">Founder, YardLink Studio LLC <span>·</span> AI Product Engineer</div>
+    <p class="tagline">"I turn fantasy into reality."</p>
+    <p class="lede">I build software products: a restaurant app that shipped to the App Store, a job
+      marketplace for security guards, an AI system that finds my company its customers, and eight more.
+      Eleven projects, one company, each taken from an idea to something that actually runs.</p>
+    <div class="ctas">
+      <a class="btn btn-p" href="#work">View My Work →</a>
+      <a class="btn btn-s" href="https://www.yardlinkstudio.com" target="_blank" rel="noopener">YardLink Studio ↗</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b data-count="11">11</b><span>Projects built</span></div>
+      <div class="stat"><b data-count="4241">4,241</b><span>Tests passing</span></div>
+      <div class="stat"><b data-count="694">694</b><span>Restaurants shipped</span></div>
+      <div class="stat"><b>1</b><span>App Store product</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rv">
+        <div class="eyebrow">About</div>
+        <h2>I build the thing, not the pitch deck.</h2>
+        <p>I like ideas that sound slightly unreasonable, then I go build them. <strong>YardLink Studio LLC</strong>
+          is the company behind that habit. It is part studio, part product laboratory.</p>
+        <p>Some of what lives there is internal infrastructure that runs the business. Some are consumer
+          products with real users on the App Store. Some are client-oriented systems. Some started because
+          I ran into a problem myself and could not find anything that solved it properly.</p>
+        <p>The work spans AI systems, iOS and Android apps, web platforms, data pipelines, real time
+          multiplayer, and automation. What connects them is not a language or a framework. It is that
+          each one had to actually work, be affordable to run, and be something I could explain
+          line by line.</p>
+        <p>A pattern shows up across all of it: <strong>run the models locally where possible, verify
+          things deterministically instead of asking an AI to grade itself, and keep a human in the loop
+          wherever the cost of being wrong is real.</strong></p>
+      </div>
+      <div class="philo rv">
+        <h3>Engineering philosophy</h3>
+        <ul>
+          <li>Build the idea. Talking about it is not the same as shipping it.</li>
+          <li>Use AI where it genuinely helps, not as decoration.</li>
+          <li>Keep systems understandable. If I cannot explain it, it is not done.</li>
+          <li>Control costs. Local models and free tiers beat a surprise invoice.</li>
+          <li>Verify before claiming. Deterministic checks over model self grading.</li>
+          <li>Keep humans in the loop when being wrong actually costs something.</li>
+          <li>Never fake an integration. A typed handoff beats a pretend API.</li>
+          <li>Turn experiments into working software, not screenshots.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Featured work</div>
+      <h2>Three systems, built end to end.</h2>
+      <p>An AI sales operating system, a website production engine, and a consumer product that shipped
+        to the App Store. Each one is doing a real job.</p>
+    </div>
+
+    <!-- WINSTON -->
+    <article class="case rv">
+      <div class="case-head">
+        <div class="case-title">
+          <span class="cat">AI Sales Intelligence</span>
+          <h3>Winston</h3>
+          <p>YardLink Studio's internal AI sales intelligence and outreach operating system.</p>
+        </div>
+        <span class="pill int">Internal tool · Active development</span>
+      </div>
+      <div class="case-body">
+        <div class="flow">
+          <span>Prospect</span><i>→</i><span>Research</span><i>→</i><span>Identify problems</span><i>→</i>
+          <span>Map to offerings</span><i>→</i><span>Price</span><i>→</i><span>Write</span><i>→</i>
+          <span>Guardian</span><i>→</i><span>Human approval</span><i>→</i><span>Send</span><i>→</i><span>Track</span>
+        </div>
+        <span class="who">Internal system for YardLink Studio</span>
+        <p class="lead">Winston is the system that finds YardLink Studio its customers. It looks up a
+          local business, works out what is actually wrong with their digital presence, decides whether
+          YardLink can genuinely help, prices the work, writes the email, checks that email against the
+          evidence, and then waits for a human to approve it before anything is sent.</p>
+        <p class="lead"><strong>It is not an email bot.</strong> An email bot sends a template to a list.
+          Winston has to be able to answer "why are we contacting this business, and what exactly are we
+          offering them," and it has to be right, because the message goes out with the company name on it.</p>
+        <div class="built">
+          <h4>What I built</h4>
+          <p>The entire system: the research pipeline, the problem detection with evidence and confidence
+            scoring, the catalogue that knows what the company can legitimately sell, the pricing model,
+            the drafting layer, the validation layer, the approval queue, and the inbox handling for replies
+            and bounces.</p>
+          <p>The work is split into modules with separate responsibilities, because each stage has a
+            different contract: Scout finds prospects, Researcher investigates, Auditor identifies problems,
+            Strategist picks the offer, Pricer estimates scope, Writer drafts, Guardian validates, and Inbox
+            classifies replies. Negotiator and Learner are designed but not yet built. These are functions
+            with defined inputs and outputs, not separate language models wearing name badges.</p>
+        </div>
+        <div class="two">
+          <div>
+            <h4>The interesting engineering</h4>
+            <ul class="notes">
+              <li><strong>Guardian can veto, and it never uses AI to do it.</strong> Every check is pattern
+                matching against stored evidence. Asking one model whether another model made something up
+                is circular reasoning, and it costs money to get an unreliable answer. Deterministic rules
+                are reproducible, explainable, and free.</li>
+              <li><strong>Nothing gets sent without a person.</strong> A blocked draft is saved for
+                inspection but never reaches the approval queue, because a message that should not be sent
+                should not be one click away from going out.</li>
+              <li><strong>The catalogue knows proof from product.</strong> Some projects demonstrate
+                capability and some are actually for sale. Winston enforces that difference, so it can
+                never email a restaurant offering to sell them an internal tool.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Running it for almost nothing</h4>
+            <p>Everything runs on local models. Simple work like classifying a reply goes to a small 3B
+              model, and harder work like drafting or auditing goes to an 8B model. Routing by difficulty
+              means the system stays sharp where it matters and cheap everywhere else.</p>
+            <p>A paid provider is unreachable unless it is explicitly switched on, so a free service failing
+              never quietly authorizes spending money. A stronger model also cannot bypass Guardian, because
+              which model wrote the text has nothing to do with whether the text is allowed to be sent.</p>
+            <h4 style="margin-top:24px">How it connects to the Website Builder</h4>
+            <p>When Winston finds a business that needs a website, it produces a structured handoff shaped
+              to the Builder's real data format, which an operator then imports. This is deliberately a
+              documented handoff and not an API integration, because the Builder does not expose a suitable
+              HTTP API. Inventing one would have meant faking a connection that does not exist.</p>
+          </div>
+        </div>
+        <div class="shots g3">
+          <div class="shot" data-full="assets/shots/winston-review.webp" data-cap="Winston editorial review: live prospect queue, generated draft, and Guardian verdict badges">
+            <img src="assets/shots/winston-review.webp" alt="Winston editorial review interface showing prospect queue, email draft, and Guardian validation badges" loading="lazy" width="1600" height="1000"></div>
+          <div class="shot" data-full="assets/shots/winston-cost.jpg" data-cap="Winston AI and cost view">
+            <img src="assets/shots/winston-cost.jpg" alt="Winston AI and cost tracking interface" loading="lazy" width="1400" height="875"></div>
+          <div class="shot" data-full="assets/shots/winston-agents.jpg" data-cap="Winston agents view">
+            <img src="assets/shots/winston-agents.jpg" alt="Winston agents interface" loading="lazy" width="1400" height="875"></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span>
+          <span class="tag">Ollama</span><span class="tag">Qwen3 8B</span><span class="tag">Llama 3.2 3B</span>
+          <span class="tag">SMTP</span><span class="tag">IMAP</span><span class="tag">launchd</span>
+          <span class="tag">Python standard library unittest</span><span class="tag">381 tests</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- WEBSITE BUILDER -->
+    <article class="case rv">
+      <div class="case-head">
+        <div class="case-title">
+          <span class="cat">Website Fulfillment System</span>
+          <h3>YardLink Studio Website Builder</h3>
+          <p>The website production system behind YardLink Studio's fulfillment side.</p>
+        </div>
+        <span class="pill int">Internal tool · Active development</span>
+      </div>
+      <div class="case-body">
+        <div class="flow">
+          <span>Structured intake</span><i>→</i><span>Content and assets</span><i>→</i><span>Generation</span><i>→</i>
+          <span>Editing</span><i>→</i><span>Audit</span><i>→</i><span>Review</span><i>→</i><span>Publish</span>
+        </div>
+        <span class="who">Internal system for YardLink Studio</span>
+        <p class="lead">When YardLink Studio takes on a client who needs a website, this is what builds it.
+          You answer questions about the business once, and it produces a finished, responsive website plus
+          a matching set of logos. The point is not to replace a designer. The point is that the tenth client
+          site should not cost the same effort as the first.</p>
+        <p class="lead">Most website builders hand you a blank template and leave the design work to you.
+          <strong>This one works the other way around:</strong> structured information about a business goes
+          in, and a complete site comes out, ready for a human to refine.</p>
+        <div class="built">
+          <h4>What I built</h4>
+          <p>The full production workflow: an eight step intake, the site generation engine, the theme and
+            layout system, document and image ingestion, the AI copywriting layer, a deterministic quality
+            auditor, client and project management, and the publishing pipeline.</p>
+          <p>It reads the documents an owner actually has rather than demanding clean data. A PDF menu, a
+            Word document, or a photograph of a printed menu all work, the last one through on device text
+            recognition. Sections are composed by industry, so a restaurant gets a menu and a barbershop gets
+            a booking prompt instead of an empty menu section.</p>
+        </div>
+        <div class="two">
+          <div>
+            <h4>The interesting engineering</h4>
+            <ul class="notes">
+              <li><strong>The AI writes words, never markup.</strong> The model produces taglines, hero copy,
+                and descriptions. It never emits HTML. Generation stays a pure function from data to string,
+                which keeps output reproducible and testable rather than surprising.</li>
+              <li><strong>Layout and theme are genuinely independent.</strong> Ten themes, six typeface
+                pairings, and eight layout families combine so the underlying page structure and section
+                order actually change, rather than recoloring the same template.</li>
+              <li><strong>The whole core path runs in the browser.</strong> No backend, and client data never
+                leaves the device. Cloud features are credential gated and off by default.</li>
+              <li><strong>Exported sites carry their own images.</strong> Processed photos are embedded
+                directly, so the downloaded site works anywhere without a hosting dependency.</li>
+              <li><strong>A deterministic auditor scores every site</strong> on content completeness, SEO,
+                accessibility, and technical issues before anyone publishes.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Deliberate limits</h4>
+            <p>The Builder supports exactly eight industries: Restaurant, Barber and Beauty, Church, Law Firm,
+              Medical, Real Estate, Retail, and Other. Anything outside that list uses the Other structure.
+              A security company, for example, would fall under Other rather than getting a bespoke template.</p>
+            <p>It also emits exactly seven section types: about, menu, gallery, team, accolades, call to
+              action, and contact. Those boundaries are enforced in code rather than left to judgement,
+              which is what stops the sales side from promising something the production side cannot make.</p>
+            <h4 style="margin-top:24px">Publishing, described honestly</h4>
+            <p>There is real publishing infrastructure: a state machine and a Cloudflare Worker backed by
+              key value storage. It is <strong>not managed hosting.</strong> The operator deploys that worker
+              to their own Cloudflare account, creates the namespace, and supplies the URL and token. Sites
+              can also simply be downloaded and hosted anywhere.</p>
+          </div>
+        </div>
+        <div class="shots g3">
+          <div class="shot" data-full="assets/shots/builder-dashboard.jpg" data-cap="Owner workspace: active client projects across three industries with review and publish states">
+            <img src="assets/shots/builder-dashboard.jpg" alt="Website Builder owner workspace showing active client projects and their completion states" loading="lazy" width="1600" height="1000"></div>
+          <div class="shot" data-full="assets/shots/builder-site1.jpg" data-cap="Generated restaurant site, emerald theme">
+            <img src="assets/shots/builder-site1.jpg" alt="Generated restaurant website in the emerald theme" loading="lazy" width="900" height="700"></div>
+          <div class="shot" data-full="assets/shots/builder-site2.jpg" data-cap="Generated barbershop site, showing industry aware composition">
+            <img src="assets/shots/builder-site2.jpg" alt="Generated barbershop website showing industry specific section composition" loading="lazy" width="900" height="700"></div>
+        </div>
+        <div class="shots" style="margin-top:14px">
+          <div class="shot" data-full="assets/builder-architecture.svg" data-cap="Website Builder system architecture">
+            <img src="assets/builder-architecture.svg" alt="Website Builder system architecture diagram" loading="lazy"></div>
+        </div>
+        <div class="tags">
+          <span class="tag">TypeScript</span><span class="tag">React 19</span><span class="tag">Next 16.2</span>
+          <span class="tag">vinext</span><span class="tag">Vite 8</span><span class="tag">Tailwind 4</span>
+          <span class="tag">Cloudflare Workers</span><span class="tag">Cloudflare KV</span><span class="tag">Wrangler</span>
+          <span class="tag">IndexedDB</span><span class="tag">Drizzle ORM</span><span class="tag">Supabase</span>
+          <span class="tag">Ollama</span><span class="tag">tesseract.js</span><span class="tag">pdf.js</span>
+          <span class="tag">mammoth</span><span class="tag">JSZip</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- YARDLINK EATS -->
+    <article class="case rv">
+      <div class="case-head">
+        <div class="case-title">
+          <span class="cat">Restaurant Discovery</span>
+          <h3>YardLink Eats</h3>
+          <p>Caribbean restaurant discovery for NYC, Long Island, and Westchester.</p>
+        </div>
+        <span class="pill live">Live on the App Store</span>
+      </div>
+      <div class="case-body">
+        <span class="who">For anyone looking for Caribbean food in New York</span>
+        <p class="lead">YardLink Eats helps people find Caribbean restaurants across New York City, Long
+          Island, and Westchester. Jamaican, Guyanese, Haitian, and Trinidadian food, with real photographs,
+          the dishes worth ordering, how far away each place is, and a guide called Errol who can actually
+          talk about the food.</p>
+        <p class="lead">The reason it exists is simple: there was no good way to find this food. Google Maps
+          buries it under chains, and Yelp does not understand the difference between a roti shop in Richmond
+          Hill and a jerk spot in the Bronx. <strong>This is the app I wanted to exist, so I built it.</strong>
+          It is live on the App Store with 694 curated restaurants.</p>
+        <div class="built">
+          <h4>What I built</h4>
+          <p>All of it, solo: the iOS app, the Android app, the web experience, the AI assistant backend,
+            and the data pipeline that decides which restaurants are good enough to ship. Four separate
+            pieces of engineering, each with its own stack.</p>
+        </div>
+        <div class="two">
+          <div>
+            <h4>The four pieces</h4>
+            <ul class="notes">
+              <li><strong>iOS.</strong> Swift and SwiftUI, with SwiftData for local storage, MapKit for the
+                map, and CoreLocation for GPS distance to each restaurant.</li>
+              <li><strong>Android.</strong> Kotlin with the Gradle Kotlin DSL, built to match the iOS
+                feature set rather than lag behind it.</li>
+              <li><strong>Web.</strong> Plain JavaScript, no framework. The site exists to explain the
+                product and send people to the app, so it did not need one.</li>
+              <li><strong>Backend.</strong> A Netlify Function serving Errol, with Firebase Firestore for
+                restaurant data and Firebase Storage for photographs.</li>
+            </ul>
+          </div>
+          <div>
+            <h4>The interesting engineering</h4>
+            <ul class="notes">
+              <li><strong>Errol runs on Groq with Llama 3.3 70B.</strong> It previously ran through an
+                Anthropic compatible interface. Rather than update two mobile apps, I wrote the new backend
+                to speak the exact same request and response format. The model provider changed underneath
+                and neither app needed a single line changed. That is what a stable contract buys you.</li>
+              <li><strong>Photographs are bought once and owned forever.</strong> Images come from Google
+                Places one time, then live in Firebase Storage permanently. The app never re-fetches and
+                never re-bills. This started as a worry about the bill and ended up being the better
+                architecture, because the product no longer depends on an external image service staying
+                available or affordable.</li>
+              <li><strong>The API key never ships inside the app.</strong> It stays server side in the
+                function, where a decompiled binary cannot reach it.</li>
+              <li><strong>Every listing is reviewed by a human</strong> before it reaches a user. That
+                review system became its own project, Anansi.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="shots g4">
+          <div class="shot" data-full="assets/shots/eats-discovery.jpg" data-cap="YardLink Eats discovery feed: Best Restaurants and Browse Caribbean by island cuisine">
+            <img src="assets/shots/eats-discovery.jpg" alt="YardLink Eats discovery screen showing curated restaurants and browsing by island cuisine" loading="lazy"></div>
+          <div class="shot" data-full="assets/shots/eats-restaurant-detail.jpg" data-cap="Restaurant detail with must try dishes">
+            <img src="assets/shots/eats-restaurant-detail.jpg" alt="YardLink Eats restaurant detail screen" loading="lazy"></div>
+          <div class="shot" data-full="assets/shots/eats-map.jpg" data-cap="Map view with GPS distance">
+            <img src="assets/shots/eats-map.jpg" alt="YardLink Eats map view showing restaurant locations" loading="lazy"></div>
+          <div class="shot" data-full="assets/shots/eats-errol.jpg" data-cap="Errol, the AI cultural guide">
+            <img src="assets/shots/eats-errol.jpg" alt="Errol AI assistant conversation screen" loading="lazy"></div>
+        </div>
+        <div class="tags">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">SwiftData</span>
+          <span class="tag">MapKit</span><span class="tag">CoreLocation</span><span class="tag">Kotlin</span>
+          <span class="tag">Gradle KTS</span><span class="tag">JavaScript</span><span class="tag">Netlify Functions</span>
+          <span class="tag">Groq</span><span class="tag">Llama 3.3 70B</span><span class="tag">Firestore</span>
+          <span class="tag">Firebase Storage</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">More projects</div>
+      <h2>The rest of the laboratory.</h2>
+      <p>Marketplaces, mobile apps, data pipelines, career automation, and a multiplayer game.
+        Different problems, same approach.</p>
+    </div>
+    <div class="pgrid">
+
+      <article class="pcard rv">
+        <div class="pcard-img" data-full="assets/shots/guardlink-jobs.jpg" data-cap="GuardLink job search: pay, hours, shift, and license requirements on every card">
+          <img src="assets/shots/guardlink-jobs.jpg" alt="GuardLink job search results showing security jobs with pay, hours, shift and license badges" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Security Job Marketplace</span>
+          <div class="pcard-t"><h3>GuardLink</h3><span class="pill dev">Active dev</span></div>
+          <span class="who">For security guards looking for work</span>
+          <p class="lead">GuardLink is a job marketplace built specifically for security professionals. It
+            helps guards find security work across New York City, Long Island, and Westchester, and it puts
+            the things that actually decide whether a job is worth applying to right on the card: the pay,
+            the hours, the shift, and which licenses you need.</p>
+          <p class="lead">Most job boards bury that information three paragraphs into a description. A guard
+            deciding between two overnight shifts should not have to dig for the hourly rate.</p>
+          <div class="built"><b>What I built</b>
+            <p>The marketplace itself, the job discovery engine that pulls openings from employer hiring
+              systems, authentication with three separate roles for guards, employers, and admins, saved
+              jobs and profiles, licence tracking, resume upload, the employer posting and review workflow,
+              and a mobile client.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">The discovery engine only reads structured
+            sources: public applicant tracking APIs from Greenhouse and Lever, and schema.org job data
+            published on company career pages. It deliberately never scrapes raw HTML. That is a correctness
+            decision rather than a missing feature, because guessing a job title and a wage out of unstructured
+            markup produces listings that look real and are wrong, and a wrong wage is worse for a guard than
+            no listing at all. The mobile app is a thin client of this platform, with no second database and
+            no duplicate business rules.</p>
+          <p class="lead" style="font-size:.88rem;color:#8fa4bd">Listings shown are seeded sample data. The marketplace, discovery engine, and workflows are real; employer boards are not yet connected.</p>
+          <div class="mini"><span>TypeScript</span><span>Next.js</span><span>React</span><span>Drizzle ORM</span>
+            <span>SQLite</span><span>scrypt auth</span><span>Greenhouse</span><span>Lever</span>
+            <span>schema.org JSON-LD</span><span>Expo</span><span>646 tests</span></div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img" data-full="assets/shots/anansi-review.webp" data-cap="Anansi editorial review: queues, badge suggestions, and confidence scoring">
+          <img src="assets/shots/anansi-review.webp" alt="Anansi editorial review dashboard with review queues, restaurant cards and AI suggestions" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Data &amp; Editorial Engine</span>
+          <div class="pcard-t"><h3>Anansi</h3><span class="pill int">Internal tool</span></div>
+          <span class="who">The editorial desk behind YardLink Eats</span>
+          <p class="lead">Anansi is the system that decides which restaurants are good enough to appear in
+            YardLink Eats. It gathers restaurant information, cleans it up, works out what is missing, and
+            then hands a human editor a workspace to make the final call on every single listing.</p>
+          <p class="lead">It is not a scraper. A scraper collects data. <strong>Anansi collects data and then
+            argues with you about it,</strong> proposing badges and list placements with a confidence score
+            and its reasoning, which a person then approves or rejects.</p>
+          <div class="built"><b>What I built</b>
+            <p>The collection pipeline, the classification and enrichment steps, the editorial review
+              interface with its queues for pending, approved, missing photos and missing dishes, the
+              suggestion engine with confidence scoring, and a question answering layer that cites its
+              sources using a local model, so asking costs nothing.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">This is the clearest human in the loop AI
+            system I have built. The model never publishes anything. It queues a recommendation, shows the
+            evidence behind it, and a person decides. Roughly 751 restaurants sit in the pipeline, and 694
+            have passed review and shipped to the app. Those two numbers being different is the entire point
+            of the system.</p>
+          <div class="mini"><span>Python</span><span>Flask</span><span>Firestore</span><span>Cloud Storage</span>
+            <span>SQLAlchemy</span><span>Alembic</span><span>psycopg</span><span>pgvector</span>
+            <span>Anthropic SDK</span><span>GitHub Actions</span><span>pytest</span><span>708 tests</span></div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img" data-full="assets/shots/avenue-gameplay.jpg" data-cap="Avenue Run gameplay">
+          <img src="assets/shots/avenue-gameplay.jpg" alt="Avenue Run neon side scrolling endless runner gameplay" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Real-Time Multiplayer Game</span>
+          <div class="pcard-t"><h3>Avenue Run</h3><span class="pill dev">Active dev</span></div>
+          <span class="who">For anyone who wants to race a friend</span>
+          <p class="lead">Avenue Run is a neon side scrolling endless runner you can play solo or race against
+            one other person online. You pick a character, you run, you dodge, and you try to beat the person
+            in the other browser.</p>
+          <div class="built"><b>What I built</b>
+            <p>The game itself in the Phaser engine, including movement, obstacles, the jetpack mechanic,
+              scoring, combos, run missions, and character customisation. Then the multiplayer server, which
+              is the part I would actually want to talk about.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">Two players racing need to agree on what is
+            happening, and that is genuinely hard once the players are on different machines. The server gives
+            <strong>each race room exactly one authoritative owner</strong> using a Cloudflare Durable Object,
+            keyed by the room code. Every WebSocket connection for a given code is routed to the one object
+            that owns that room, so there is never a disagreement about who is winning. Durable Objects exist
+            precisely to give a distributed system one place where state is real, and a race is exactly that
+            shape of problem. The wire protocol between client and server is tested separately from the game.</p>
+          <div class="mini"><span>Phaser 3.90</span><span>TypeScript</span><span>Vite 7</span>
+            <span>Cloudflare Durable Objects</span><span>WebSockets</span><span>PWA</span><span>Android TWA</span></div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img hasbadge" data-full="assets/shots/otonia-home.jpg" data-cap="Otonia home: mood check in, companion, and quick ways in">
+          <img src="assets/shots/otonia-home.jpg" alt="Otonia home screen with mood picker, companion character and quick actions" loading="lazy">
+          <img class="applogo" src="assets/icons/otonia.png" alt="Otonia app icon" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Wellness Mobile App</span>
+          <div class="pcard-t"><h3>Otonia</h3><span class="pill dev">In store review</span></div>
+          <span class="who">For people dealing with stress and racing thoughts</span>
+          <p class="lead">Otonia is a wellness app for the ordinary bad evenings: overthinking, anxiety,
+            not being able to wind down. It combines an AI companion you can talk to, a journal, a daily
+            check in, and small games that are genuinely fun rather than clinical, all inside a calm
+            persistent world that learns what actually helps you. You pick a companion who stays with you,
+            check in on how you are doing, and choose how you want to be helped: play something, be distracted,
+            talk it out, calm down, or write it out.</p>
+          <p class="lead">It is not a therapist and makes no medical claims. It is meant to be the thing
+            you open at eleven at night when your brain will not stop.</p>
+          <div class="built"><b>What I built</b>
+            <p>The full mobile app for both iOS and Android: the companion, the journal, the check in loop,
+              the mini games with real audio and rendering, the personalisation engine, authentication, and
+              the store submission work for both platforms.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">Accessibility was treated as an engineering
+            requirement, not a checkbox. Reduced motion is respected throughout, and no game encodes meaning
+            in colour alone, which matters when a stressed or colourblind user is the entire audience. It
+            carries the largest test suite of anything I have built.</p>
+          <div class="mini"><span>React Native</span><span>TypeScript</span><span>Expo 57</span>
+            <span>Expo Router</span><span>React Native Skia</span><span>expo-audio</span><span>Supabase</span>
+            <span>Apple Auth</span><span>1,753 tests</span></div>
+          <div class="shots g3" style="margin-top:18px">
+            <div class="shot" data-full="assets/shots/otonia-support.jpg" data-cap="What sounds doable: five ways in, plus optional context for what is going on"><img src="assets/shots/otonia-support.jpg" alt="Otonia support screen offering play, distract, talk, calm and write options" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/otonia-companion.jpg" data-cap="Moss, the companion, with the garden and daily note"><img src="assets/shots/otonia-companion.jpg" alt="Otonia companion screen showing Moss the cat with customize, talk, play and garden options" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/otonia-home.jpg" data-cap="Mood check in and quick actions"><img src="assets/shots/otonia-home.jpg" alt="Otonia mood check in screen" loading="lazy"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img" data-full="assets/shots/susan-dashboard.jpg" data-cap="Susan dashboard: the local career agent's control surface">
+          <img src="assets/shots/susan-dashboard.jpg" alt="Susan career agent dashboard" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Career Automation Agent</span>
+          <div class="pcard-t"><h3>Susan</h3><span class="pill dev">Active dev</span></div>
+          <span class="who">For anyone grinding through a job search</span>
+          <p class="lead">Susan is a career agent that runs on your own laptop and takes the repetitive parts
+            of job hunting off your hands. You give it your resume and supporting documents once. After that
+            it finds openings, scores them, tailors your materials to each one, helps fill applications,
+            prepares you for interviews, and keeps track of what actually happened.</p>
+          <p class="lead">The reason it runs locally is that a job search involves your resume, your salary
+            history, and your rejections. <strong>That is not data I wanted sitting on somebody else's
+            server.</strong></p>
+          <div class="built"><b>What I built</b>
+            <p>All of it: job discovery, resume parsing and rendering, application tracking, interview
+              preparation, outcome analytics, an encrypted vault for backups, and a browser assistant that
+              helps complete application forms. Around ten thousand lines of Python, running as a local
+              background service behind token authentication.</p></div>
+          <div class="mini"><span>Python</span><span>Flask</span><span>launchd</span><span>Playwright</span>
+            <span>NumPy</span><span>cryptography</span><span>python-docx</span><span>pypdf</span>
+            <span>reportlab</span><span>187 tests</span></div>
+          <div class="shots g3" style="margin-top:18px">
+            <div class="shot" data-full="assets/shots/susan-job-scout.jpg" data-cap="Job scout"><img src="assets/shots/susan-job-scout.jpg" alt="Susan job scout screen" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/susan-resume-builder.jpg" data-cap="Resume builder"><img src="assets/shots/susan-resume-builder.jpg" alt="Susan resume builder screen" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/susan-tracker.jpg" data-cap="Application tracker"><img src="assets/shots/susan-tracker.jpg" alt="Susan application tracker screen" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/susan-semantic-search.jpg" data-cap="Semantic search over saved roles"><img src="assets/shots/susan-semantic-search.jpg" alt="Susan semantic search screen" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/susan-career-profile.jpg" data-cap="Career profile"><img src="assets/shots/susan-career-profile.jpg" alt="Susan career profile screen" loading="lazy"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img" data-full="assets/shots/wedlink-invitation.jpg" data-cap="The invitation a guest sees after opening their link or code">
+          <img src="assets/shots/wedlink-invitation.jpg" alt="WedLink wedding invitation showing a monogram crest, couple names, date and location" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Wedding Planning &amp; Guest Experience</span>
+          <div class="pcard-t"><h3>WedLink</h3><span class="pill dev">Active dev</span></div>
+          <span class="who">For couples planning a wedding and their guests</span>
+          <p class="lead">WedLink lets a couple set up their wedding, invite guests individually or by a
+            shared link, and see who is actually coming. Guests open their invitation with a link or a short
+            code and reply without ever creating an account, because nobody wants to make a password to tell
+            their cousin they will be at the reception.</p>
+          <p class="lead">It is a wedding planning app, not just an RSVP form. The couple gets one place for
+            the wedding details, the invitation, the guest list, seating, the budget and expenses, and every
+            reply as it comes in. Meal counts and dietary needs add themselves up as guests answer, so the
+            caterer question answers itself. The guest side is translated into eight languages, since the
+            people invited to a wedding do not all read the same one.</p>
+          <div class="built"><b>What I built</b>
+            <p>The mobile app for both platforms, the guest invitation and RSVP flow, the organiser
+              dashboard, guest and meal tracking, invitation sharing through short codes and deep links,
+              guest list and seating, budget and expense tracking, invitation styling, guest video uploads,
+              localisation into eight languages, and the entire database security model.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">The interesting work is in the backend.
+            Letting anonymous guests read and write specific wedding data without letting them see anyone
+            else's wedding is a real access control problem. The result is 33 migrations across 27 tables,
+            row level security on every one of them, and 32 policies, verified by a thirty step synthetic
+            run using genuinely separate organiser and guest sessions. Monetary gifts are deliberately
+            switched off. Handling other people's wedding money is a responsibility I did not want to take
+            on without being certain.</p>
+          <div class="mini"><span>React Native</span><span>JavaScript</span><span>Expo 54</span>
+            <span>Supabase</span><span>PostgreSQL</span><span>Row Level Security</span><span>8 languages</span><span>556 tests</span></div>
+          <div class="shots g4" style="margin-top:18px">
+            <div class="shot" data-full="assets/shots/wedlink-organizer-dashboard.jpg" data-cap="The couple's dashboard: countdown, headcount, attending, declined, and pledged totals"><img src="assets/shots/wedlink-organizer-dashboard.jpg" alt="WedLink organizer dashboard showing countdown and guest response totals" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/wedlink-rsvp.jpg" data-cap="The RSVP form: relation, attendance, and who is coming as what"><img src="assets/shots/wedlink-rsvp.jpg" alt="WedLink RSVP form with relation, attendance and guest type options" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/wedlink-meals-invite.jpg" data-cap="Meal counts and dietary needs roll up from replies, next to the shareable invitation code"><img src="assets/shots/wedlink-meals-invite.jpg" alt="WedLink meal counts, dietary needs and shareable invitation code" loading="lazy"></div>
+            <div class="shot" data-full="assets/shots/wedlink-roles-languages.jpg" data-cap="Both paths, plus the guest language picker across eight languages"><img src="assets/shots/wedlink-roles-languages.jpg" alt="WedLink couple and guest paths with eight language picker" loading="lazy"></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-img hasbadge" data-full="assets/shots/vt2nh-discover.jpg" data-cap="VT2NH discover feed: 234 events across 31 towns, grouped by time and filtered by category">
+          <img src="assets/shots/vt2nh-discover.jpg" alt="VT2NH discover screen showing events across Vermont and New Hampshire grouped by day" loading="lazy">
+          <img class="applogo" src="assets/icons/vt2nh.png" alt="VT2NH app icon" loading="lazy"></div>
+        <div class="pcard-b">
+          <span class="cat">Event Discovery App</span>
+          <div class="pcard-t"><h3>VT2NH</h3><span class="pill dev">Active dev</span></div>
+          <span class="who">For people looking for something to do in Vermont or New Hampshire</span>
+          <p class="lead">VT2NH is an iOS app for finding local events across Vermont and New Hampshire.
+            You browse what is happening near you grouped into Today, Tomorrow, This Week and Later, filter
+            by category, see it on a map, check the forecast for the day of the event, and save the ones
+            you want to go to.</p>
+          <div class="built"><b>What I built</b>
+            <p>The app and the ingestion layer that pulls events automatically from public calendar feeds
+              across towns in both states, then normalises them into a single browsable feed with categories,
+              locations, and dates.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">Every data source is free and requires no
+            paid plan. That was a constraint set at the start rather than a compromise made at the end, and
+            it shaped which sources were viable and how the app degrades when one of them is unavailable.</p>
+          <div class="mini"><span>Swift</span><span>SwiftUI</span><span>SwiftData</span><span>MapKit</span>
+            <span>EventKit</span><span>Calendar feed ingestion</span></div>
+        </div>
+      </article>
+
+      <article class="pcard rv">
+        <div class="pcard-icon"><img src="assets/icons/pulse.svg" alt="YardLink Pulse mark" loading="lazy" style="width:88px;height:auto"></div>
+        <div class="pcard-b">
+          <span class="cat">Marketing Automation</span>
+          <div class="pcard-t"><h3>YardLink Pulse</h3><span class="pill pro">Prototype</span></div>
+          <span class="who">For a small business handling its own marketing</span>
+          <p class="lead">Pulse is an early attempt at giving a business one place to keep its brand
+            information, turn a marketing goal into an actual campaign, plan the content calendar, and manage
+            what gets published and when.</p>
+          <div class="built"><b>What I built</b>
+            <p>The API and data model, brand context as a real pipeline input rather than a stored blob of
+              text, campaign generation that turns one objective into a populated calendar, and a publishing
+              queue sitting behind an approval gate with honest status reporting.</p></div>
+          <p class="lead" style="font-size:.94rem;color:#a3b6cd">This one is early and I am calling it what
+            it is: a prototype, not production software. The concepts work. It has not been run in anger.</p>
+          <div class="mini"><span>FastAPI</span><span>SQLAlchemy</span><span>psycopg</span><span>Alembic</span>
+            <span>Pydantic</span><span>argon2-cffi</span><span>Next.js</span><span>React</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="stack" class="alt">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Technology</div>
+      <h2>What I actually build with.</h2>
+      <p>Everything listed here is in use in a project above. Nothing is here because it looks good
+        on a resume.</p>
+    </div>
+    <div class="stack">
+      <div class="sgroup rv"><h3>Languages</h3><div>
+        <span class="tag">Python</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span>
+        <span class="tag">Swift</span><span class="tag">Kotlin</span><span class="tag">SQL</span>
+        <span class="tag">HTML</span><span class="tag">CSS</span></div></div>
+      <div class="sgroup rv"><h3>Frontend</h3><div>
+        <span class="tag">React 19</span><span class="tag">React Native</span><span class="tag">SwiftUI</span>
+        <span class="tag">Next.js</span><span class="tag">Vite</span><span class="tag">Tailwind CSS 4</span>
+        <span class="tag">Expo</span><span class="tag">Phaser 3</span><span class="tag">Skia</span></div></div>
+      <div class="sgroup rv"><h3>Backend</h3><div>
+        <span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">Node.js</span>
+        <span class="tag">Netlify Functions</span><span class="tag">Cloudflare Workers</span>
+        <span class="tag">scrypt auth</span><span class="tag">argon2</span></div></div>
+      <div class="sgroup rv"><h3>AI</h3><div>
+        <span class="tag">Ollama</span><span class="tag">Qwen3 8B</span><span class="tag">Llama 3.2 3B</span>
+        <span class="tag">Groq</span><span class="tag">Llama 3.3 70B</span><span class="tag">Anthropic SDK</span>
+        <span class="tag">Tiered routing</span><span class="tag">RAG</span></div></div>
+      <div class="sgroup rv"><h3>Databases</h3><div>
+        <span class="tag">PostgreSQL</span><span class="tag">Supabase</span><span class="tag">SQLite</span>
+        <span class="tag">Firestore</span><span class="tag">SwiftData</span><span class="tag">IndexedDB</span>
+        <span class="tag">Cloudflare KV</span><span class="tag">pgvector</span><span class="tag">Drizzle</span>
+        <span class="tag">SQLAlchemy</span><span class="tag">Alembic</span></div></div>
+      <div class="sgroup rv"><h3>Cloud and infrastructure</h3><div>
+        <span class="tag">Cloudflare Workers</span><span class="tag">Durable Objects</span>
+        <span class="tag">Cloudflare KV</span><span class="tag">Netlify</span><span class="tag">Firebase</span>
+        <span class="tag">Supabase</span><span class="tag">GitHub Actions</span><span class="tag">launchd</span>
+        <span class="tag">Wrangler</span><span class="tag">Expo EAS</span></div></div>
+      <div class="sgroup rv"><h3>Data and automation</h3><div>
+        <span class="tag">Google Places</span><span class="tag">Greenhouse ATS</span><span class="tag">Lever ATS</span>
+        <span class="tag">schema.org JSON-LD</span><span class="tag">Playwright</span><span class="tag">OCR</span>
+        <span class="tag">tesseract.js</span><span class="tag">pdf.js</span><span class="tag">IMAP / SMTP</span></div></div>
+      <div class="sgroup rv"><h3>Testing</h3><div>
+        <span class="tag">Jest</span><span class="tag">pytest</span><span class="tag">unittest</span>
+        <span class="tag">node:test</span><span class="tag">Vitest</span><span class="tag">XCTest</span>
+        <span class="tag">Firestore rules tests</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="f-in">
+      <div class="rv">
+        <div class="eyebrow">Get in touch</div>
+        <h3>Ideas become software here.</h3>
+        <p>If you are building something that sounds slightly unreasonable, I am probably interested.</p>
+      </div>
+      <div class="f-links rv">
+        <a href="https://github.com/Kevin-Edwards57" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/kevin-edwards-b62bb7239/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://www.yardlinkstudio.com" target="_blank" rel="noopener">YardLink Studio ↗</a>
+        <a href="https://apps.apple.com/us/app/yardlink-eats/id6780117569" target="_blank" rel="noopener">App Store ↗</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2026 Kevin Edwards · YardLink Studio LLC</span>
+      <span>"I turn fantasy into reality."</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-x" id="lbx" aria-label="Close image viewer">×</button>
+  <img id="lbi" src="" alt="" aria-hidden="true">
+  <div class="lb-cap" id="lbc"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('on',scrollY>24)},{passive:true});
+
+  var burger=document.getElementById('burger'),links=document.getElementById('links');
+  burger.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');burger.setAttribute('aria-expanded','false')}
+  });
+
+  // scroll reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)} });
+  },{threshold:.12,rootMargin:'0px 0px -40px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // counters, verified numbers only
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target,target=parseInt(el.dataset.count,10);cio.unobserve(el);
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      var t0=null,dur=1300;
+      function step(ts){
+        if(!t0)t0=ts;
+        var p=Math.min((ts-t0)/dur,1),v=Math.floor(target*(1-Math.pow(1-p,3)));
+        el.textContent=v.toLocaleString();
+        if(p<1)requestAnimationFrame(step); else el.textContent=target.toLocaleString();
+      }
+      el.textContent='0';requestAnimationFrame(step);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el)});
+
+  // lightbox
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi'),
+      lbc=document.getElementById('lbc'),lbx=document.getElementById('lbx'),last=null;
+  function open(src,cap,img){
+    last=img; lbi.src=src; lbi.alt=cap||''; lbi.removeAttribute('aria-hidden'); lbc.textContent=cap||'';
+    lb.classList.add('on'); document.body.style.overflow='hidden'; lbx.focus();
+  }
+  function close(){
+    lb.classList.remove('on'); lbi.src=''; lbi.alt=''; lbi.setAttribute('aria-hidden','true'); document.body.style.overflow='';
+    if(last)last.focus();
+  }
+  document.querySelectorAll('[data-full]').forEach(function(el){
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.setAttribute('aria-label','Open larger image');
+    el.addEventListener('click',function(){open(el.dataset.full,el.dataset.cap,el)});
+    el.addEventListener('keydown',function(ev){
+      if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();open(el.dataset.full,el.dataset.cap,el)}
+    });
+  });
+  lbx.addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});
+})();
+</script>
+</body>
+</html>

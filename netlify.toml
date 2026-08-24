@@ -1,0 +1,22 @@
+# Static site. No build step.
+[build]
+  publish = "."
+
+# Send www to the apex once the domain is live.
+[[redirects]]
+  from = "https://www.kevinedwards.dev/*"
+  to = "https://kevinedwards.dev/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

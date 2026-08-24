@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 620" width="1400" height="620" font-family="'Segoe UI',Helvetica,Arial,sans-serif" role="img" aria-label="YardLink Studio system architecture">
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08130c"/><stop offset="1" stop-color="#0a1710"/>
+    </linearGradient>
+    <linearGradient id="engine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#163826"/><stop offset="1" stop-color="#0f2418"/>
+    </linearGradient>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#2ecc40"/>
+    </marker>
+    <marker id="ahg" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#7f8a82"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="620" rx="16" fill="url(#page)"/>
+
+  <!-- Header -->
+  <text x="48" y="52" font-size="30" font-weight="800" fill="#f2f7f2" letter-spacing="-.5">System Architecture</text>
+  <text x="48" y="80" font-size="15" fill="#4ade80" font-weight="600" letter-spacing=".3">YardLink Studio · local-first website &amp; logo studio</text>
+
+  <!-- ===================== ON-DEVICE panel ===================== -->
+  <rect x="40" y="104" width="890" height="470" rx="14" fill="#0d1a12" stroke="#2ecc40" stroke-opacity="0.4"/>
+  <rect x="40" y="104" width="220" height="30" rx="14" fill="#123020"/>
+  <circle cx="62" cy="119" r="4" fill="#2ecc40"/>
+  <text x="76" y="124" font-size="12.5" font-weight="700" fill="#9df0a5" letter-spacing="1">ON DEVICE · NO SERVER</text>
+
+  <!-- UI row -->
+  <rect x="64" y="150" width="842" height="52" rx="10" fill="#12211a" stroke="#2f6b43"/>
+  <text x="84" y="181" font-size="16" font-weight="700" fill="#eafff0">Builder UI · React 19</text>
+  <text x="470" y="181" font-size="13.5" fill="#9fb0a4">dashboard · 8-step guided intake · live preview</text>
+
+  <!-- contracts bar -->
+  <rect x="64" y="214" width="842" height="34" rx="8" fill="#0f1c15" stroke="#294b36" stroke-dasharray="3 3"/>
+  <text x="84" y="236" font-size="13" font-weight="600" fill="#7fd08c">Typed contracts</text>
+  <text x="210" y="236" font-size="13" fill="#9fb0a4">SiteData · LogoInput · CopyContext  (data → pure engine → string)</text>
+
+  <!-- engines -->
+  <g font-size="14.5" font-weight="700" fill="#eafff0">
+    <g>
+      <rect x="64" y="262" width="200" height="98" rx="10" fill="url(#engine)" stroke="#3a7d4e"/>
+      <text x="80" y="290">Site Generator</text>
+      <text x="80" y="313" font-size="11.5" font-weight="500" fill="#a7c3af">10 themes · 6 fonts</text>
+      <text x="80" y="331" font-size="11.5" font-weight="500" fill="#a7c3af">industry-aware sections</text>
+      <text x="80" y="349" font-size="11.5" font-weight="500" fill="#a7c3af">SEO + JSON-LD</text>
+    </g>
+    <g>
+      <rect x="278" y="262" width="200" height="98" rx="10" fill="url(#engine)" stroke="#3a7d4e"/>
+      <text x="294" y="290">Logo Generator</text>
+      <text x="294" y="313" font-size="11.5" font-weight="500" fill="#a7c3af">wordmark · monogram</text>
+      <text x="294" y="331" font-size="11.5" font-weight="500" fill="#a7c3af">· emblem</text>
+      <text x="294" y="349" font-size="11.5" font-weight="500" fill="#a7c3af">vector SVG output</text>
+    </g>
+    <g>
+      <rect x="492" y="262" width="200" height="98" rx="10" fill="url(#engine)" stroke="#3a7d4e"/>
+      <text x="508" y="290">AI Copywriter</text>
+      <text x="508" y="313" font-size="11.5" font-weight="500" fill="#a7c3af">taglines · story · bio</text>
+      <text x="508" y="331" font-size="11.5" font-weight="500" fill="#a7c3af">local LLM +</text>
+      <text x="508" y="349" font-size="11.5" font-weight="500" fill="#a7c3af">template fallback</text>
+    </g>
+    <g>
+      <rect x="706" y="262" width="200" height="98" rx="10" fill="url(#engine)" stroke="#3a7d4e"/>
+      <text x="722" y="290">Doc / Menu Extractor</text>
+      <text x="722" y="313" font-size="11.5" font-weight="500" fill="#a7c3af">PDF · DOCX · images</text>
+      <text x="722" y="331" font-size="11.5" font-weight="500" fill="#a7c3af">on-device OCR</text>
+      <text x="722" y="349" font-size="11.5" font-weight="500" fill="#a7c3af">→ structured text</text>
+    </g>
+  </g>
+
+  <!-- outputs + delivery -->
+  <g font-size="13.5" font-weight="700" fill="#eafff0">
+    <rect x="64" y="384" width="410" height="46" rx="9" fill="#12211a" stroke="#2f6b43"/>
+    <text x="82" y="412">Website · standalone .html <tspan font-weight="500" fill="#9fb0a4">(SEO + structured data)</tspan></text>
+    <rect x="488" y="384" width="200" height="46" rx="9" fill="#12211a" stroke="#2f6b43"/>
+    <text x="504" y="412">Logo set · .svg</text>
+
+    <rect x="64" y="446" width="250" height="46" rx="9" fill="#0f1c15" stroke="#294b36"/>
+    <text x="80" y="474" font-weight="600">Live preview · iframe</text>
+    <rect x="328" y="446" width="270" height="46" rx="9" fill="#0f1c15" stroke="#294b36"/>
+    <text x="344" y="474" font-weight="600">Download · hostable file</text>
+    <rect x="612" y="446" width="276" height="46" rx="9" fill="#0f1c15" stroke="#294b36"/>
+    <text x="628" y="474" font-weight="600">localStorage · drafts (offline)</text>
+  </g>
+
+  <!-- flow arrows (solid green) -->
+  <g stroke="#2ecc40" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <line x1="485" y1="202" x2="485" y2="212"/>
+    <line x1="485" y1="248" x2="485" y2="259"/>
+    <line x1="164" y1="360" x2="164" y2="381"/>
+    <line x1="378" y1="360" x2="378" y2="381"/>
+    <line x1="164" y1="430" x2="164" y2="443"/>
+    <line x1="270" y1="430" x2="360" y2="443"/>
+  </g>
+  <!-- extractor feeds back to UI -->
+  <path d="M806,262 C806,232 806,214 640,204" stroke="#5a8a68" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#ahg)"/>
+
+  <!-- ===================== OPTIONAL panel ===================== -->
+  <rect x="952" y="104" width="408" height="470" rx="14" fill="#0c110e" stroke="#8a938c" stroke-opacity="0.35" stroke-dasharray="6 4"/>
+  <rect x="952" y="104" width="300" height="30" rx="14" fill="#171c18"/>
+  <text x="974" y="124" font-size="12.5" font-weight="700" fill="#c7cec8" letter-spacing="1">OPTIONAL · CREDENTIAL-GATED</text>
+
+  <g>
+    <rect x="976" y="150" width="360" height="86" rx="10" fill="#101713" stroke="#3a7d4e"/>
+    <text x="996" y="180" font-size="15" font-weight="700" fill="#eafff0">Ollama · local LLM</text>
+    <text x="996" y="203" font-size="12" fill="#9fb0a4">free · private · runs on your machine</text>
+    <text x="996" y="222" font-size="12" fill="#9fb0a4">powers AI copywriting (qwen3 / llama3.1)</text>
+
+    <rect x="976" y="252" width="360" height="86" rx="10" fill="#0f130f" stroke="#5b6660" stroke-dasharray="5 3"/>
+    <text x="996" y="282" font-size="15" font-weight="700" fill="#eef2ee">Cloudflare Pages</text>
+    <text x="996" y="305" font-size="12" fill="#a6ada7">1-click publish · custom domains</text>
+    <text x="996" y="324" font-size="12" fill="#6f7a72">Phase 4</text>
+
+    <rect x="976" y="354" width="360" height="86" rx="10" fill="#0f130f" stroke="#5b6660" stroke-dasharray="5 3"/>
+    <text x="996" y="384" font-size="15" font-weight="700" fill="#eef2ee">Supabase</text>
+    <text x="996" y="407" font-size="12" fill="#a6ada7">cloud sync · multi-device projects</text>
+    <text x="996" y="426" font-size="12" fill="#6f7a72">Phase 2</text>
+  </g>
+  <text x="976" y="470" font-size="12.5" fill="#7f8a82">Activate each by adding keys to <tspan fill="#b9c7bd" font-weight="600">.env.local</tspan>, core never regresses.</text>
+
+  <!-- cross arrows to optional (dashed) -->
+  <g stroke="#7f8a82" stroke-width="1.8" fill="none" stroke-dasharray="5 3" marker-end="url(#ahg)">
+    <path d="M692,300 C830,300 900,193 972,193"/>
+    <path d="M598,469 C760,469 860,300 972,295"/>
+    <path d="M888,469 C930,469 950,400 972,397"/>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="12.5" fill="#a6ada7">
+    <line x1="48" y1="598" x2="80" y2="598" stroke="#2ecc40" stroke-width="3"/>
+    <text x="90" y="602" fill="#c7d3c9">Local and free, always on, no network</text>
+    <line x1="360" y1="598" x2="392" y2="598" stroke="#8a938c" stroke-width="2.4" stroke-dasharray="6 4"/>
+    <text x="402" y="602" fill="#c7d3c9">Optional add-on, needs your credentials</text>
+    <text x="740" y="602" fill="#5f6a62">Engines are pure data → string · registries scale without rewrites</text>
+  </g>
+</svg>
