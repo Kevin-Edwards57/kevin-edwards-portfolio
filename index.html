@@ -183,6 +183,11 @@ h2{font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:-.03em;line-height:1.1;marg
 .pcard-t h3{margin:0;font-size:1.16rem;color:#fff;letter-spacing:-.02em;font-weight:700}
 .pcard-b p{color:#a3b6cd;font-size:.93rem;margin:0 0 16px;flex:1}
 .mini{display:flex;gap:6px;flex-wrap:wrap}
+.storelinks{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.storelink{font-family:var(--mono);font-size:.73rem;padding:7px 13px;border-radius:7px;
+  color:#4ade80;border:1px solid rgba(74,222,128,.38);background:rgba(74,222,128,.09);
+  transition:background .2s,transform .2s}
+.storelink:hover{background:rgba(74,222,128,.18);transform:translateY(-1px)}
 .mini span{font-family:var(--mono);font-size:.68rem;padding:4px 9px;border-radius:5px;
   background:rgba(255,255,255,.05);color:#93a8c2}
 
@@ -593,7 +598,7 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
           <img src="assets/shots/guardlink-jobs.jpg" alt="GuardLink job search results showing security jobs with pay, hours, shift and license badges" loading="lazy"></div>
         <div class="pcard-b">
           <span class="cat">Security Job Marketplace</span>
-          <div class="pcard-t"><h3>GuardLink</h3><span class="pill dev">Active dev</span></div>
+          <div class="pcard-t"><h3>GuardLink</h3><span class="pill dev" data-status="guardlink">Active dev</span></div>
           <span class="who">For security guards looking for work</span>
           <p class="lead">GuardLink is a job marketplace built specifically for security professionals. It
             helps guards find security work across New York City, Long Island, and Westchester, and it puts
@@ -617,7 +622,8 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
           <div class="mini"><span>TypeScript</span><span>Next.js</span><span>React</span><span>Drizzle ORM</span>
             <span>SQLite</span><span>scrypt auth</span><span>Greenhouse</span><span>Lever</span>
             <span>schema.org JSON-LD</span><span>Expo</span><span>646 tests</span></div>
-        </div>
+        <!--storelinks:guardlink-->
+          </div>
       </article>
 
       <article class="pcard rv">
@@ -681,7 +687,7 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
           <img class="applogo" src="assets/icons/otonia.png" alt="Otonia app icon" loading="lazy"></div>
         <div class="pcard-b">
           <span class="cat">Wellness Mobile App</span>
-          <div class="pcard-t"><h3>Otonia</h3><span class="pill dev">In store review</span></div>
+          <div class="pcard-t"><h3>Otonia</h3><span class="pill dev" data-status="otonia">In store review</span></div>
           <span class="who">For people dealing with stress and racing thoughts</span>
           <p class="lead">Otonia is a wellness app for the ordinary bad evenings: overthinking, anxiety,
             not being able to wind down. It combines an AI companion you can talk to, a journal, a daily
@@ -707,7 +713,8 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
             <div class="shot" data-full="assets/shots/otonia-companion.jpg" data-cap="Moss, the companion, with the garden and daily note"><img src="assets/shots/otonia-companion.jpg" alt="Otonia companion screen showing Moss the cat with customize, talk, play and garden options" loading="lazy"></div>
             <div class="shot" data-full="assets/shots/otonia-home.jpg" data-cap="Mood check in and quick actions"><img src="assets/shots/otonia-home.jpg" alt="Otonia mood check in screen" loading="lazy"></div>
           </div>
-        </div>
+        <!--storelinks:otonia-->
+          </div>
       </article>
 
       <article class="pcard rv">
@@ -747,7 +754,7 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
           <img src="assets/shots/wedlink-invitation.jpg" alt="WedLink wedding invitation showing a monogram crest, couple names, date and location" loading="lazy"></div>
         <div class="pcard-b">
           <span class="cat">Wedding Planning &amp; Guest Experience</span>
-          <div class="pcard-t"><h3>WedLink</h3><span class="pill dev">Active dev</span></div>
+          <div class="pcard-t"><h3>WedLink</h3><span class="pill dev" data-status="wedlink">Active dev</span></div>
           <span class="who">For couples planning a wedding and their guests</span>
           <p class="lead">WedLink lets a couple set up their wedding, invite guests individually or by a
             shared link, and see who is actually coming. Guests open their invitation with a link or a short
@@ -778,7 +785,8 @@ footer{padding:70px 0 46px;border-top:1px solid var(--line);background:var(--nav
             <div class="shot" data-full="assets/shots/wedlink-meals-invite.jpg" data-cap="Meal counts and dietary needs roll up from replies, next to the shareable invitation code"><img src="assets/shots/wedlink-meals-invite.jpg" alt="WedLink meal counts, dietary needs and shareable invitation code" loading="lazy"></div>
             <div class="shot" data-full="assets/shots/wedlink-roles-languages.jpg" data-cap="Both paths, plus the guest language picker across eight languages"><img src="assets/shots/wedlink-roles-languages.jpg" alt="WedLink couple and guest paths with eight language picker" loading="lazy"></div>
           </div>
-        </div>
+        <!--storelinks:wedlink-->
+          </div>
       </article>
 
       <article class="pcard rv">

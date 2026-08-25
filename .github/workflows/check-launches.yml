@@ -1,0 +1,46 @@
+name: Check app launches
+
+# Runs daily and flips a project to "live" on the portfolio the day its store
+# listing goes public. Also runnable by hand from the Actions tab.
+#
+# This never marks anything launched on its own judgement. It asks Apple and
+# Google whether the public can install the app, and only then edits the page.
+
+on:
+  schedule:
+    - cron: "0 14 * * *"   # 14:00 UTC daily, roughly 10am ET
+  workflow_dispatch:        # manual run button
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check store listings
+        id: check
+        run: node scripts/check-launches.mjs | tee /tmp/out.txt
+
+      - name: Commit if a launch was detected
+        run: |
+          if grep -q "^changed=true" /tmp/out.txt; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html launch-state.json
+            git commit -m "A project went live on the store
+
+          $(grep 'LAUNCHED' /tmp/out.txt)
+
+          Detected by scripts/check-launches.mjs against the public store listing."
+            git push
+            echo "Pushed. Netlify will redeploy automatically."
+          else
+            echo "No launches detected. Nothing to do."
+          fi

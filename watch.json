@@ -1,0 +1,26 @@
+{
+  "_comment": "Source of truth for automatic launch detection. A project flips to live only when a public store listing actually resolves. Never edited by the workflow.",
+  "projects": [
+    {
+      "slug": "otonia",
+      "name": "Otonia",
+      "iosBundleId": "studio.yardlink.otonia",
+      "androidPackage": "studio.yardlink.otonia",
+      "web": null
+    },
+    {
+      "slug": "wedlink",
+      "name": "WedLink",
+      "iosBundleId": "com.wedlink.app",
+      "androidPackage": "com.wedlink.app",
+      "web": null
+    },
+    {
+      "slug": "guardlink",
+      "name": "GuardLink",
+      "iosBundleId": "studio.yardlink.guardlink",
+      "androidPackage": "studio.yardlink.guardlink",
+      "web": null
+    }
+  ]
+}
