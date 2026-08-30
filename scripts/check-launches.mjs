@@ -87,6 +87,21 @@ for (const p of watch.projects) {
   report.push(`${p.name}: LAUNCHED (${label})`);
 }
 
+// The hero counter is a claim about how many products the public can install.
+// It is derived from the same evidence as the pills, never set by hand.
+{
+  const shipped = 1 + Object.values(state.projects).filter((p) => p.live).length; // 1 = YardLink Eats
+  const label = shipped === 1 ? "Product on the stores" : "Products on the stores";
+  const before = html;
+  html = html
+    .replace(/(<b data-shipped>)\d+(<\/b>)/, `$1${shipped}$2`)
+    .replace(/(<span data-shipped-label>)[^<]*(<\/span>)/, `$1${label}$2`);
+  if (html !== before) {
+    changed = true;
+    report.push(`hero counter: ${shipped} shipped`);
+  }
+}
+
 console.log(report.join("\n"));
 
 if (changed) {
