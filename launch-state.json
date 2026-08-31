@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "guardlink": {
+      "live": true,
+      "detected": "2026-08-31",
+      "ios": null,
+      "android": {
+        "url": "https://play.google.com/store/apps/details?id=studio.yardlink.guardlink"
+      }
+    }
+  }
+}
